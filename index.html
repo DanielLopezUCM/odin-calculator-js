@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Calculator</title>
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -14,32 +14,32 @@
     <div id="result">1 + 2 = 3</div>
     <div id="buttonsContainer">
       <div class="row">
-        <button id="clearButton">CLEAR</button>
-        <button id="deleteButton">DELETE</button>
+        <button id="clearButton" onclick="operation.reset()">CLEAR</button>
+        <button id="deleteButton" onclick="operation.deleteLast()">DELETE</button>
       </div>
       <div class="row">
-        <button id="7Button">7</button>
-        <button id="8Button">8</button>
-        <button id="9Button">9</button>
-        <button id="divButton">÷</button>
+        <button id="7Button" onclick="operation.addSymbol('7')">7</button>
+        <button id="8Button" onclick="operation.addSymbol('8')">8</button>
+        <button id="9Button" onclick="operation.addSymbol('9')">9</button>
+        <button id="divButton" onclick="operation.addSymbol('')">÷</button>
       </div>
       <div class="row">
-        <button id="4Button">4</button>
-        <button id="5Button">5</button>
-        <button id="6Button">6</button>
-        <button id="mulButton">x</button>
+        <button id="4Button" onclick="operation.addSymbol('4')">4</button>
+        <button id="5Button" onclick="operation.addSymbol('5')">5</button>
+        <button id="6Button" onclick="operation.addSymbol('6')">6</button>
+        <button id="mulButton" onclick="operation.addSymbol('x')">x</button>
       </div>
       <div class="row">
-        <button id="1Button">1</button>
-        <button id="2Button">2</button>
-        <button id="3Button">3</button>
-        <button id="subButton">-</button>
+        <button id="1Button" onclick="operation.addSymbol('1')">1</button>
+        <button id="2Button" onclick="operation.addSymbol('2')">2</button>
+        <button id="3Button" onclick="operation.addSymbol('3')">3</button>
+        <button id="subButton" onclick="operation.addSymbol('-')">-</button>
       </div>
       <div class="row">
-        <button id="dotButton">.</button>
-        <button id="0Button">0</button>
-        <button id="equalsButton">=</button>
-        <button id="addButton">+</button>
+        <button id="dotButton" onclick="operation.addSymbol('.')">.</button>
+        <button id="0Button" onclick="operation.addSymbol('0')">0</button>
+        <button id="equalsButton" onclick="operation.operate()">=</button>
+        <button id="addButton" onclick="operation.addSymbol('+')">+</button>
       </div>
     </div>
   </div>

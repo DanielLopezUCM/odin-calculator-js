@@ -60,7 +60,7 @@ const operation = {
       }
       this.text += " " + operator + " ";
     }
-    updateOperationText(this.text);
+    this.updateOperationText(this.text);
 
     this.prevNum = false;
     this.prevOp = true;
@@ -78,12 +78,12 @@ const operation = {
         this.text = this.result;
       }
     }
-    else if (this.prevOp) {
+    else if (this.prevOp && number == ".") {
       this.text += "0";
     }
     this.text += number;
 
-    updateOperationText(this.text);
+    this.updateOperationText(this.text);
 
     this.prevNum = true;
     this.prevOp = false;
@@ -96,21 +96,59 @@ const operation = {
 
     let operation = this.text.split(" ");
     let i = 0;
-    for (; i < this.text - 2; i += 2) {
+    for (; i < operation.length - 2; i += 2) {
       operation[i + 2] = operate(operation[i], operation[i + 1], operation[i + 2]);
     } 
-    this.result = operation.toString();
+    this.result = operation[i].toString();
     this.text = "";
-    updateOperationText(this.text);
-    updateResult(this.result);
+    this.updateOperationText(this.text);
+    this.updateResult(this.result);
+    this.prevDot = false;
+    this.prevNum = false;
+    this.prevOp = false;
   },
   updateResult() {
-    let resultLabel = document.querySelector("#result");
+    let resultLabel = document.getElementById("result");
     resultLabel.textContent = this.result;
   },
   updateOperationText() {
-    let operationLabel = document.querySelector("#operationText");
+    let operationLabel = document.getElementById("operationText");
     operationLabel.textContent = this.text;
+  },
+  reset() {
+    this.prevDot = false;
+    this.prevNum = false;
+    this.prevOp = false;
+    this.text = "";
+    this.result = "0";
+    operation.updateResult();
+    operation.updateOperationText();
+  },
+  deleteLast() {
+    if (this.text.length == 0){
+      return;
+    }
+    if (this.text[this.text.length - 1] == " ") {
+      this.text = this.text.slice(0, -2);
+      this.prevOp = false;
+      this.prevNum = true;
+      this.prevDot = false;
+      let i = this.text.length - 2;
+      while (i > 0 && !this.prevDot && this.text[i] != " "){
+        this.prevDot = this.text[i] == ".";
+        i--;
+      }
+    }
+    if (this.text[this.text.length - 1] == ".") {
+      this.prevDot = false;
+    }
+    this.text = this.text.slice(0, -1);
+    if (this.text.length != 0 && this.text[this.text.length - 1] == " ") {
+      this.prevDot = false;
+      this.prevNum = false;
+      this.prevOp = true;
+    }
+    operation.updateOperationText();
   }
 }
 
