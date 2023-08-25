@@ -60,8 +60,8 @@ const operation = {
       }
       this.text += " " + operator + " ";
     }
-    setOperationText(this.text);
-    
+    updateOperationText(this.text);
+
     this.prevNum = false;
     this.prevOp = true;
   },
@@ -83,7 +83,7 @@ const operation = {
     }
     this.text += number;
 
-    setOperationText(this.text);
+    updateOperationText(this.text);
 
     this.prevNum = true;
     this.prevOp = false;
@@ -101,17 +101,18 @@ const operation = {
     } 
     this.result = operation.toString();
     this.text = "";
-    setOperationText(this.text);
-    setResult(this.result);
+    updateOperationText(this.text);
+    updateResult(this.result);
+  },
+  updateResult() {
+    let resultLabel = document.querySelector("#result");
+    resultLabel.textContent = this.result;
+  },
+  updateOperationText() {
+    let operationLabel = document.querySelector("#operationText");
+    operationLabel.textContent = this.text;
   }
 }
 
-function setResult(result) {
-  let resultLabel = document.querySelector("#result");
-  resultLabel.textContent = result;
-}
-
-function setOperationText(operation) {
-  let operationLabel = document.querySelector("#operationText");
-  operationLabel.textContent = operation;
-}
+operation.updateResult();
+operation.updateOperationText();
