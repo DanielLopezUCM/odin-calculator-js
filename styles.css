@@ -1,3 +1,92 @@
 body {
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100vh;
+    margin:0px;
+}
+
+#calculator {
+    background-color: gray;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    padding: 20px;
+    border-radius: 20px;
+    height: 450px;
+    border: 3px solid black;
+    gap: 20px;
+    margin-bottom: 5%;
+}
+
+#textContainer {
+    background-color: darkgray;
+    height: 20%;
+    width: 90%;
+    padding: 10px;
+    border: 3px solid black;
+    border-radius: 10px;
+    margin: 10px 0px;
+}
+
+#textContainer div{
+    height: 50%;
+    display: flex;
+    width: 100%;
+    text-align: end;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+#buttonsContainer {
+    width: calc(90% - 10px);
+    padding: 15px;
+    border: 3px solid black;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    aspect-ratio: 4/5;
+    background-color: rgb(91, 91, 91);
+    gap: 5px;
+}
+
+.row {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    height: 20%;
+    justify-content: space-between;
+}
+
+.row button {
+    border-radius: 5px;
+    border: 0px;
+    width: 25%;
+    height: 100%;
+}
+
+#deleteButton, #clearButton {
+    width: 50%;
+}
+
+#footage {
+    width: 100%;
+    background: rgb(50, 50, 50);
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#footage a {
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+#footage a:hover {
+    color: rgb(209, 209, 209);
 }

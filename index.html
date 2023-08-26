@@ -10,8 +10,14 @@
 <body>
   <h1>Calculator</h1>
   <div id="calculator">
-    <div id="operationText"></div>
-    <div id="result">1 + 2 = 3</div>
+    <div id="textContainer">
+      <div>
+        <div id="operationText">0</div>
+      </div>
+      <div>
+        <div id="result">1 + 2 = 3</div>
+      </div>
+    </div>
     <div id="buttonsContainer">
       <div class="row">
         <button id="clearButton" onclick="operation.reset()">CLEAR</button>
@@ -42,6 +48,9 @@
         <button id="addButton" onclick="operation.addSymbol('+')">+</button>
       </div>
     </div>
+  </div>
+  <div id="footage">
+    <a href="https://github.com/DanielLopezUCM/odin-calculator-js">Project by Daniel Lopez</a>
   </div>
 </body>
 </html>
