@@ -52,7 +52,7 @@ const operation = {
 
   addOperator(operator) {
     if (this.prevOp) { // replace previous operator
-      this.text[this.text.length-2] = operator;
+      this.text = this.text.slice(0, -2) + operator + " ";
     }
     else {
       if (!this.prevNum) {
@@ -99,10 +99,10 @@ const operation = {
     for (; i < operation.length - 2; i += 2) {
       operation[i + 2] = operate(operation[i], operation[i + 1], operation[i + 2]);
     } 
-    this.result = operation[i].toString();
+    this.result = Math.round(Number(operation[i].toString()) * 1000) / 1000;
     this.text = "";
-    this.updateOperationText(this.text);
-    this.updateResult(this.result);
+    this.updateOperationText();
+    this.updateResult();
     this.prevDot = false;
     this.prevNum = false;
     this.prevOp = false;
